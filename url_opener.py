@@ -1,14 +1,16 @@
 from urllib.request import urlopen
 
-story = urlopen('http://sixty-north.com/c/t.txt')
 
-story_words = []
+def fetch_words():
+    story = urlopen('http://sixty-north.com/c/t.txt')
 
-for line in story:
-    line_words = line.decode('utf-8').split()
-    for word in line_words:
-        story_words.append(word)
+    story_words = []
+    for line in story:
+        line_words = line.decode('utf-8').split()
+        for word in line_words:
+            story_words.append(word)
 
-story.close()
+    story.close()
 
-print(story_words)
+    for word in story_words:
+        print(word)
